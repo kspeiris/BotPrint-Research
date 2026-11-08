@@ -1,0 +1,16 @@
+issue,n_affected_records,n_affected_sessions,affected_session_ids,why_it_is_a_problem,recommended_handling
+Missing values (overall),23586,0,,Structural and unexpected nulls present; not all are errors.,Inspect per event type; do not blanket-fill with zero.
+Duplicate events,0,0,,Fully duplicated rows may distort counts and features.,Remove exact duplicate rows; keep one copy.
+Invalid data types,0,0,,All columns have consistent dtypes on read.,None required; re-verify after any cleaning.
+Invalid timestamps,0,0,,Null/unparseable timestamps break temporal ordering.,Exclude or correct affected events; do not infer.
+Negative elapsed times,0,0,,Negative duration corrupts speed/duration features.,Correct from Timestamp deltas or exclude from duration features.
+Negative movement speeds,0,0,,Negative speed is physically impossible.,Exclude from speed features or correct.
+Invalid coordinates,0,0,,Negative or missing coordinates on mouse events corrupt spatial features.,Exclude affected mouse events from spatial features; null coords on non-mouse events are structural.
+Inconsistent session identifiers,0,0,,Null/non-string session IDs break session grouping.,Fix or exclude rows with invalid session IDs.
+Sessions with very few events (<=10),19,5,S-7df9b2e8-ab6d-4887-bcf5-fa7287013afb; gg; ggfhg; hjhjuhj; hjhjuhjhjhj,Too few events for reliable fingerprinting.,Do not delete; apply minimum-event threshold only at fingerprinting stage.
+Mixed SessionSource within session,241,2,S-4fe30c98-b2c8-474a-b13d-68006c970e45; S-ac26b901-0007-438f-bc2b-ecb97e7dc1ca,Inconsistent session metadata.,Use mode value per session or flag.
+Mixed UserType within session,0,0,,Breaks ground-truth label integrity.,Treat session label as unreliable; exclude from supervised evaluation.
+Mixed BotType within session,0,0,,Inconsistent bot-subtype annotation.,Flag for manual review.
+Event-specific missing values,23586,0,,Expected to differ by event type (structural vs unexpected).,Confirm structural nulls per event type; do not blanket-fill.
+Non-chronological timestamps,0,0,,Out-of-order events break temporal features.,Sort by Timestamp within session; flag severely disordered sessions.
+Session summary column inconsistencies,0,0,,Checked where non-null; summary columns are sparse.,Recompute aggregates from events; do not trust stored values.
