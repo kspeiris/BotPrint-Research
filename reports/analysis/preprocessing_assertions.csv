@@ -1,0 +1,6 @@
+assertion,passed
+Session IDs preserved (cleaned subset of original),True
+All cleaned timestamps valid,True
+Events chronologically sorted within sessions,True
+No silent record loss (cleaned + excluded == original),True
+No label columns in behavioural measurements,True

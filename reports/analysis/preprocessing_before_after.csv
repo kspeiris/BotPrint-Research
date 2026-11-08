@@ -1,0 +1,3 @@
+dataset,n_rows,n_columns,n_unique_sessions,total_null_cells,n_excluded
+original,1196,35,24,23586,0
+cleaned,1196,36,24,23586,0
