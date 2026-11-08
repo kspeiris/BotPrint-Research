@@ -1,0 +1,8 @@
+metric,value
+dtype,int64
+non_null_count,1196
+min_epoch_ms,1792518973669
+max_epoch_ms,1794134163621
+min_datetime,2026-10-20 17:56:13.669000
+max_datetime,2026-11-08 10:36:03.621000
+failed_to_parse,0
