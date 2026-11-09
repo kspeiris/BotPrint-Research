@@ -1,0 +1,51 @@
+{
+  "feature_columns": [
+    "session_duration_s",
+    "session_total_events",
+    "session_event_frequency",
+    "session_mean_idle_ms",
+    "session_navigation_count",
+    "mouse_mean_speed",
+    "mouse_std_speed",
+    "mouse_mean_acceleration",
+    "mouse_std_acceleration",
+    "mouse_total_distance",
+    "mouse_movement_frequency",
+    "mouse_direction_changes",
+    "keyboard_mean_interkey_ms",
+    "keyboard_std_interkey_ms",
+    "keyboard_typing_frequency",
+    "keyboard_typing_count",
+    "click_mean_interval_ms",
+    "click_std_interval_ms",
+    "click_frequency",
+    "click_count",
+    "scroll_mean_speed",
+    "scroll_std_speed",
+    "scroll_mean_delta",
+    "scroll_count"
+  ],
+  "indicator_columns": [
+    "mouse_event_count",
+    "mouse_has_data",
+    "keyboard_event_count",
+    "keyboard_has_data",
+    "click_event_count",
+    "click_has_data",
+    "scroll_event_count",
+    "scroll_has_data"
+  ],
+  "excluded_columns": [
+    "SessionID",
+    "UserType",
+    "BotType",
+    "CoordinationGroupID",
+    "SessionSource",
+    "BotID"
+  ],
+  "imputation_strategy": "median",
+  "selected_scaler": "RobustScaler",
+  "scaling_fit_note": "Scaling/imputation parameters estimated from all available sessions in this exploratory fingerprint dataset. For future supervised evaluation, fit preprocessing ONLY on training data and apply to evaluation data to avoid leakage.",
+  "n_sessions": 24,
+  "n_features": 24
+}

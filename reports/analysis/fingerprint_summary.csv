@@ -1,0 +1,8 @@
+metric,value
+n_sessions,24
+n_fingerprint_features,24
+selected_scaler,RobustScaler
+imputation_strategy,median
+n_excluded_id_label_cols,6
+n_indicator_cols_available,8
+fingerprint_claim,Behavioural representations for research; not unique user identification.

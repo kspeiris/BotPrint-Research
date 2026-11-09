@@ -1,0 +1,3 @@
+scaler,mean_of_means,mean_of_stds,median_of_medians,max_abs_value,note
+StandardScaler,1.2528558437610277e-17,1.0215078369104982,-0.35245318567452677,4.697572548211611,Fit on all available sessions (exploratory; do not refit on eval in future).
+RobustScaler,3.1935196004527904,14.246588724292096,0.0,522.6858093733024,Fit on all available sessions (exploratory; do not refit on eval in future).
