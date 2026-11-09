@@ -1,0 +1,33 @@
+feature_name,description,formula,source_columns,applicable_event_types,missing_value_handling
+mouse_mean_speed,Mean mouse movement speed,mean(Speed) over mousemove events with valid Speed,"Speed, EventType, SessionID, Timestamp",mousemove,NaN if no mousemove events with valid Speed
+mouse_std_speed,Standard deviation of mouse movement speed,"std(Speed, ddof=1) over mousemove events with valid Speed; 0 if exactly 1 observation","Speed, EventType, SessionID, Timestamp",mousemove,NaN if no valid Speed observations
+mouse_mean_acceleration,Mean mouse acceleration,mean(Acceleration) over mousemove events with valid Acceleration,"Acceleration, EventType, SessionID, Timestamp",mousemove,NaN if no valid observations
+mouse_std_acceleration,Standard deviation of mouse acceleration,"std(Acceleration, ddof=1); 0 if exactly 1 observation","Acceleration, EventType, SessionID, Timestamp",mousemove,NaN if no valid observations
+mouse_total_distance,Total mouse movement distance (Euclidean path length),"sum(sqrt((X_t-X_{t-1})^2 + (Y_t-Y_{t-1})^2)) over chronologically sorted mousemove events with valid X,Y","X, Y, EventType, SessionID, Timestamp",mousemove,NaN if <2 valid positions and <1 position; 0.0 if exactly 1 position
+mouse_movement_frequency,Mouse movement events per second of session,count(mousemove events) / session_duration_s,"EventType, SessionDurationMs/ElapsedMs, Timestamp, SessionID",mousemove + session duration,NaN if no mousemove events or duration unavailable/zero
+mouse_direction_changes,Number of significant direction changes in mouse trajectory,"count of consecutive angle differences > 30 degrees (pi/6) from atan2(DY,DX) over moving steps, sorted by Timestamp","DX, DY, EventType, SessionID, Timestamp",mousemove,NaN if <2 valid movement vectors
+mouse_event_count,Count of mousemove events in session (availability indicator),count(EventType in mouse types),"EventType, SessionID",mousemove,Always 0 or positive integer (measured count)
+mouse_has_data,Indicator: session has mouse data,1 if mouse_event_count>0 else 0,"EventType, SessionID",mousemove,Always 0 or 1
+keyboard_mean_interkey_ms,Mean inter-key interval,mean(InterKeyIntervalMs) over keyboard events with valid values,"InterKeyIntervalMs, EventType, SessionID, Timestamp",keypress/keydown/keyup,NaN if no valid observations
+keyboard_std_interkey_ms,Standard deviation of inter-key interval,"std(InterKeyIntervalMs, ddof=1); 0 if exactly 1 observation","InterKeyIntervalMs, EventType, SessionID, Timestamp",keypress/keydown/keyup,NaN if no valid observations
+keyboard_typing_frequency,Typing events per second of session,count(keyboard events) / session_duration_s,"EventType, SessionDurationMs/ElapsedMs, Timestamp, SessionID",keypress/keydown/keyup + session duration,NaN if no keyboard events or duration unavailable/zero
+keyboard_typing_count,Total typing event count,count(keyboard events),"EventType, SessionID",keypress/keydown/keyup,NaN if no keyboard events (unavailable); use keyboard_has_data/keyboard_event_count for zero-measured context
+keyboard_event_count,Count of keyboard events (availability indicator),count(EventType in key types),"EventType, SessionID",keypress/keydown/keyup,Always 0 or positive integer
+keyboard_has_data,Indicator: session has keyboard data,1 if keyboard_event_count>0 else 0,"EventType, SessionID",keypress/keydown/keyup,Always 0 or 1
+click_mean_interval_ms,Mean click interval,mean(ClickIntervalMs) over click events with valid values,"ClickIntervalMs, EventType, SessionID, Timestamp",click/mouse_click,NaN if no valid observations
+click_std_interval_ms,Standard deviation of click interval,"std(ClickIntervalMs, ddof=1); 0 if exactly 1 observation","ClickIntervalMs, EventType, SessionID, Timestamp",click/mouse_click,NaN if no valid observations
+click_frequency,Clicks per second of session,count(click events) / session_duration_s,"EventType, SessionDurationMs/ElapsedMs, Timestamp, SessionID",click/mouse_click + session duration,NaN if no click events or duration unavailable/zero
+click_count,Total click event count,count(click events),"EventType, SessionID",click/mouse_click,NaN if no click events
+click_event_count,Count of click events (availability indicator),count(EventType in click types),"EventType, SessionID",click/mouse_click,Always 0 or positive integer
+click_has_data,Indicator: session has click data,1 if click_event_count>0 else 0,"EventType, SessionID",click/mouse_click,Always 0 or 1
+scroll_mean_speed,Mean scroll speed,mean(ScrollSpeed) over scroll events with valid values,"ScrollSpeed, EventType, SessionID, Timestamp",scroll/wheel,NaN if no valid observations
+scroll_std_speed,Standard deviation of scroll speed,"std(ScrollSpeed, ddof=1); 0 if exactly 1 observation","ScrollSpeed, EventType, SessionID, Timestamp",scroll/wheel,NaN if no valid observations
+scroll_mean_delta,Mean scroll delta,mean(ScrollDelta) over scroll events with valid values,"ScrollDelta, EventType, SessionID, Timestamp",scroll/wheel,NaN if no valid observations
+scroll_count,Total scroll event count,count(scroll events),"EventType, SessionID",scroll/wheel,NaN if no scroll events
+scroll_event_count,Count of scroll events (availability indicator),count(EventType in scroll types),"EventType, SessionID",scroll/wheel,Always 0 or positive integer
+scroll_has_data,Indicator: session has scroll data,1 if scroll_event_count>0 else 0,"EventType, SessionID",scroll/wheel,Always 0 or 1
+session_duration_s,Session duration in seconds,max(SessionDurationMs)/1000 if available else max(ElapsedMs)/1000 else (max(Timestamp)-min(Timestamp))/1000,"SessionDurationMs, ElapsedMs, Timestamp, SessionID",all session events,NaN if duration cannot be determined
+session_mean_idle_ms,Mean idle time in milliseconds,mean(IdleMs) over all session events with valid IdleMs,"IdleMs, SessionID",all session events,NaN if no valid IdleMs observations
+session_total_events,Total number of events in session,count(all events for SessionID),"EventType, SessionID",all session events,Always a measured count (>=1)
+session_event_frequency,Events per second over session duration,session_total_events / session_duration_s,"EventType, SessionDurationMs/ElapsedMs, Timestamp, SessionID",all session events,NaN if duration unavailable or zero
+session_navigation_count,Number of navigation events/actions in session,count(navigation events) if any else max(NavigationCount) if available else 0 (measured absence),"EventType, NavigationCount, SessionID",navigation + all,0 if no navigation observed (actual measured value)
