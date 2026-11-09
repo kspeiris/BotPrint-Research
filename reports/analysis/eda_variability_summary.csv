@@ -1,0 +1,5 @@
+,n_events,n_events,n_events,n_events,events_per_second,events_per_second,events_per_second,events_per_second,duration_ms,duration_ms,duration_ms,duration_ms,idle_mean_ms,idle_mean_ms,idle_mean_ms,idle_mean_ms,idle_std_ms,idle_std_ms,idle_std_ms,idle_std_ms
+,count,median,mean,std,count,median,mean,std,count,median,mean,std,count,median,mean,std,count,median,mean,std
+UserType,,,,,,,,,,,,,,,,,,,,
+Bot,15,19.0,35.4,26.153,15,1.355,1.621,0.958,15,18660.0,22280.4,15375.884,15,211.588,277.004,230.831,15,244.508,551.833,835.344
+Human,9,16.0,73.889,95.588,8,4.581,4.646,3.203,9,7755.0,15071.0,15259.557,9,165.938,168.421,95.709,7,253.472,227.827,125.601

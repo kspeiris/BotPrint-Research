@@ -1,0 +1,6 @@
+,n_events,n_events,n_events,n_events,events_per_second,events_per_second,events_per_second,events_per_second,duration_ms,duration_ms,duration_ms,duration_ms,idle_median_ms,idle_median_ms,idle_median_ms,idle_median_ms
+,count,median,mean,std,count,median,mean,std,count,median,mean,std,count,median,mean,std
+BotType,,,,,,,,,,,,,,,,
+CoordinatedBot,5,64.0,65.0,6.325,5,1.908,1.801,0.431,5,33026.0,38969.4,15899.919,5,200.0,204.9,38.813
+MimicBot,5,13.0,13.4,3.507,5,1.355,1.417,0.383,5,10329.0,9621.8,1597.956,5,82.0,69.8,17.866
+RandomBot,5,18.0,27.8,23.858,5,0.959,1.646,1.669,5,18660.0,18250.0,1828.295,5,107.5,113.2,20.648

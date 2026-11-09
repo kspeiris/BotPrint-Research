@@ -1,0 +1,4 @@
+BotType,n_events,n_sessions
+CoordinatedBot,325,5
+MimicBot,67,5
+RandomBot,139,5
